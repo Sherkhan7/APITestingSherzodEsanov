@@ -13,16 +13,6 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-/**
- * Lab task: 10 RestAssured tests against the Swagger Petstore API.
- * Base URL: https://petstore.swagger.io/v2
- *
- * Covers both positive and negative scenarios with validations of:
- *   - HTTP status code
- *   - Content-Type header
- *   - Data values
- *   - Data structure
- */
 public class PetstoreApiTests {
 
     @BeforeAll
@@ -45,9 +35,7 @@ public class PetstoreApiTests {
         return pet;
     }
 
-    // ---------------------------------------------------------------------
     // POSITIVE TESTS
-    // ---------------------------------------------------------------------
 
     @Test
     @DisplayName("1. GET /pet/findByStatus?status=available returns 200 and a JSON array")
@@ -195,9 +183,8 @@ public class PetstoreApiTests {
                 .body("status", everyItem(equalTo("sold")));
     }
 
-    // ---------------------------------------------------------------------
+
     // NEGATIVE TESTS
-    // ---------------------------------------------------------------------
 
     @Test
     @DisplayName("8. GET /pet/{id} with a non-existent id returns 404 with error body")
